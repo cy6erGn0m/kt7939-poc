@@ -11,6 +11,7 @@ fun <T> json(block: T.() -> Unit): T = (js("({})")as T).let { obj -> obj.block()
 
 data class A(val a: String, val list: List<String>, val map: Map<String, String>) {
     companion object {
+        // to be generated
         fun fromJson(json: dynamic): A {
             val a = json.a?.toString() !!
             val list = (json.list as Array<String>?)?.toList() ?: emptyList()
